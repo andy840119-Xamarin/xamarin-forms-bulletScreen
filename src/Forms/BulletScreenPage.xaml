@@ -42,7 +42,8 @@
                 <controls:EnumBindablePicker x:TypeArguments="model:CommentTextSize" SelectedItem="{Binding Size}" 
                                              SelectedIndex="0"></controls:EnumBindablePicker>
 
-                <!--TODO :Color-->
+                <!--Color-->
+                <Button Text="Pick a color"></Button>
                 
                 <!--Comment-->
                 <Button Text="Comment"></Button>
