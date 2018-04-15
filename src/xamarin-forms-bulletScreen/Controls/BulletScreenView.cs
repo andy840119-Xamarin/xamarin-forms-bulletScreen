@@ -49,7 +49,7 @@ namespace BulletScreen.Controls
         /// <summary>
         /// Speed
         /// </summary>
-        public double Speed { get; set; }
+        public double Speed { get; set; } = 1;
 
         /// <summary>
         /// Comments
@@ -120,7 +120,7 @@ namespace BulletScreen.Controls
             foreach (var comment in OnTimeComments)
             {
                 var text = Children.FirstOrDefault(x => x.CommentGuid == comment.CommentGuid);
-                UpdateProperty(comment, text, currentTime);
+                UpdateProperty(comment, text, currentTime - comment.CommentTime);
             }
         }
 
@@ -133,7 +133,8 @@ namespace BulletScreen.Controls
         /// <param name="height"></param>
         protected override void LayoutChildren(double x, double y, double width, double height)
         {
-            throw new NotImplementedException();
+            //TODO : Guess maybe cal max row ?
+            //throw new NotImplementedException();
         }
 
         /// <summary>
@@ -252,7 +253,7 @@ namespace BulletScreen.Controls
         /// </summary>
         /// <param name="comment"></param>
         /// <param name="text"></param>
-        /// <param name="currentTime"></param>
+        /// <param name="textAppearTime"></param>
         protected virtual void UpdateProperty(TComment comment,TText text,double textAppearTime)
         {
             double xPosition = Width / 2;
