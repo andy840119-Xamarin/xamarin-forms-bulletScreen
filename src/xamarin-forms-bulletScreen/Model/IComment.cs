@@ -7,7 +7,7 @@ namespace BulletScreen.Model
     /// <summary>
     /// Basic comment component
     /// </summary>
-    public interface IBulletScreenComment
+    public interface IComment : ICommentGuid
     {
         /// <summary>
         /// Comment

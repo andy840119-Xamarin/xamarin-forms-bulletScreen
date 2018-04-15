@@ -7,9 +7,14 @@ namespace BulletScreen.Model
     /// <summary>
     /// ModelText
     /// </summary>
-    public class BulletScreenComment : IBulletScreenComment , ICommentMovingSpeed , ICommentStayTime
+    public class Comment : IComment , ICommentMovingSpeed , ICommentStayTime
     {
         #region Common
+
+        /// <summary>
+        /// Each Comment has a unique Guid
+        /// </summary>
+        public Guid CommentGuid { get; set; } = Guid.NewGuid();
 
         /// <summary>
         /// Comment

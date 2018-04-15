@@ -8,13 +8,22 @@ namespace BulletScreen.Controls
     /// <summary>
     /// Text
     /// </summary>
-    public class BulletScreenText : Label
+    public class BulletScreenText : Label , IBulletScreenText
     {
+        /// <summary>
+        /// Comment Guid
+        /// </summary>
+        public Guid CommentGuid { get; set; }
+
+        /// <summary>
+        /// how much time comment stay on the screen
+        /// </summary>
+        public double StayTime { get; set; }
+
         public BulletScreenText()
         {
 
         }
-
-        public Guid Id { get; set; }
+        
     }
 }
