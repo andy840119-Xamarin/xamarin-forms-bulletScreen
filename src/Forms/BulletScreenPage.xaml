@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Form.Controls;assembly=BulletScreen.Form"
+             xmlns:controls1="clr-namespace:BulletScreen.Controls;assembly=Xamarin.Forms.BulletScreen"
+             xmlns:model="clr-namespace:BulletScreen.Model;assembly=Xamarin.Forms.BulletScreen"
+             
+             x:Class="Form.BulletScreenPage">
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            
+            <!--Video display area-->
+            <Grid HeightRequest="300">
+                <!--Video-->
+                <BoxView BackgroundColor="Blue"></BoxView>
+                
+                <!--Bullet Screen-->
+                <controls1:BulletScreenView></controls1:BulletScreenView>
+            </Grid>
+            
+            <!--Slider to change time-->
+            <StackLayout>
+                <!--Play/Pause-->
+                <Button Text="Play/Pause"></Button>
+                
+                <!--Slider to scroll to target time-->
+                <Slider></Slider>
+            </StackLayout>
+            
+            <BoxView HeightRequest="30"></BoxView>
+            
+            <!--Add new Comment-->
+            <StackLayout Spacing="10">
+                <!--Text-->
+                <Entry Placeholder="Enter some text in here"></Entry>
+                
+                <!--Orientation-->
+                <controls:EnumBindablePicker x:TypeArguments="model:CommentOrientation" SelectedItem="{Binding CommentOrientation}" 
+                                             SelectedIndex="0"></controls:EnumBindablePicker>
+
+                <!--Text size-->
+                <controls:EnumBindablePicker x:TypeArguments="model:CommentTextSize" SelectedItem="{Binding Size}" 
+                                             SelectedIndex="0"></controls:EnumBindablePicker>
+
+                <!--TODO :Color-->
+                
+                <!--Comment-->
+                <Button Text="Comment"></Button>
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -7,7 +7,7 @@ namespace Form
         public App()
         {
             // The root page of your application
-            var navPage = new NavigationPage(new FuriganaPage());
+            var navPage = new NavigationPage(new BulletScreenPage());
             navPage.Icon = null;
             MainPage = navPage;
         }

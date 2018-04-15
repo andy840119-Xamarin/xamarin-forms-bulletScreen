@@ -25,8 +25,7 @@ namespace BulletScreen.Controls
     {
         #region Protected Property
 
-        protected ObservableCollection<TComment> OnTimeComments { get; set; } = new ObservableCollection<TComment>();
-        protected Double LastTime { get; set; }
+        protected ObservableCollection<TComment> OnTimeComments { get;} = new ObservableCollection<TComment>();
 
         #endregion
 

@@ -15,4 +15,10 @@
     <ProjectReference Include="..\xamarin-forms-bulletScreen\BulletScreen.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Update="BulletScreenPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>
