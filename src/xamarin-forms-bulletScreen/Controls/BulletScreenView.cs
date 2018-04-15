@@ -168,6 +168,22 @@ namespace BulletScreen.Controls
                 label.Text = comment.Text;
                 label.TextColor = Color.FromHex(comment.HexColor);
                 label.FontSize = GetFontSizeByCommentTextSize(comment.Size);
+
+                switch (comment.Orientation)
+                {
+                    case CommentOrientation.Top:
+                        label.HorizontalTextAlignment = TextAlignment.Center;
+                        break;
+                    case CommentOrientation.Bottom:
+                        label.HorizontalTextAlignment = TextAlignment.Center;
+                        break;
+                    case CommentOrientation.LeftToRight:
+                        label.HorizontalTextAlignment = TextAlignment.End;
+                        break;
+                    case CommentOrientation.RightToLeft:
+                        label.HorizontalTextAlignment = TextAlignment.Start;
+                        break;
+                }
             }
         }
 
@@ -237,8 +253,10 @@ namespace BulletScreen.Controls
         /// <param name="comment"></param>
         /// <param name="text"></param>
         /// <param name="currentTime"></param>
-        protected virtual void UpdateProperty(TComment comment,TText text,double currentTime)
+        protected virtual void UpdateProperty(TComment comment,TText text,double textAppearTime)
         {
+            double xPosition = Width / 2;
+            double yPosition = GetYPositionByRow(text.Row);
             switch (comment.Orientation)
             {
                 case CommentOrientation.Top:
@@ -248,12 +266,29 @@ namespace BulletScreen.Controls
 
                     break;
                 case CommentOrientation.LeftToRight:
-
+                    xPosition = Width - GetXPositionByRelativeTime(comment, textAppearTime);
                     break;
                 case CommentOrientation.RightToLeft:
-
+                    xPosition = GetXPositionByRelativeTime(comment, textAppearTime);
                     break;
             }
+
+            //update object's position
+            UpdateTextPosition(text, xPosition, yPosition);
+        }
+
+        /// <summary>
+        /// Update position
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        protected virtual void UpdateTextPosition(TText text, double x, double y)
+        {
+            var view = text as View;
+            var request = view.Measure(this.Width, this.Height);
+            var region = new Rectangle(x, y, request.Request.Width, request.Request.Height);
+            LayoutChildIntoBoundingRegion(view, region);
         }
 
         #endregion
