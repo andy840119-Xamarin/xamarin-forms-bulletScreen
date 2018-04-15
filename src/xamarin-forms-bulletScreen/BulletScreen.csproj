@@ -1,0 +1,75 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;MonoAndroid80;Xamarin.iOS10;</TargetFrameworks>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/andy840119-Xamarin/xamarin-furigana.git</PackageProjectUrl>
+    <Authors>andy840119</Authors>
+    <Description>Show furigana japanese character in xamarin.Forms</Description>
+    <PackageLicenseUrl>https://github.com/andy840119-Xamarin/xamarin-furigana/blob/master/README.md</PackageLicenseUrl>
+    <PackageTags>android ios furigana xamarin forms</PackageTags>
+    <PackageVersion>2.0.0</PackageVersion>
+    <PackageReleaseNotes>https://github.com/andy840119-Xamarin/xamarin-furigana/blob/master/README.md</PackageReleaseNotes>
+    <PackageIconUrl>https://raw.githubusercontent.com/andy840119-Xamarin/xamarin-furigana/master/icon/2.0.0.png</PackageIconUrl>
+    <AssemblyName>Xamarin.Forms.BulletScreen</AssemblyName>
+    <RootNamespace>BulletScreen</RootNamespace>
+    <RepositoryUrl>https://github.com/andy840119-Xamarin/xamarin-furigana.git</RepositoryUrl>
+    <RepositoryType>Xamarin.Forms</RepositoryType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+    <DefineConstants>$(DefineConstants);NETSTANDARD;BAIT</DefineConstants>
+    <Product>Furigana - .NET Standard 2</Product>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'Xamarin.iOS10' ">
+    <DefineConstants>$(DefineConstants);__IOS__</DefineConstants>
+    <Product>Furigana - iOS</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Platforms\**\*.cs" />
+    <None Include="Platforms\**\*.cs" />
+    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.2.2" PrivateAssets="all" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    <Compile Include="Platforms\Shared\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'MonoAndroid80' ">
+    <Compile Include="Platforms\Shared\**\*.cs" />
+    <Compile Include="Platforms\Android\**\*.cs" />
+    <PackageReference Include="NETStandard.Library" Version="2.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.Animated.Vector.Drawable" version="26.1.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.Design" version="26.1.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.v4" version="26.1.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" version="26.1.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.v7.CardView" version="26.1.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" version="26.1.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView" version="26.1.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.Vector.Drawable" version="26.1.0.1" />
+    <PackageReference Include="Xamarin.Forms" version="2.5.0.122203" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'Xamarin.iOS10' ">
+    <Compile Include="Platforms\Shared\**\*.cs" />
+    <Compile Include="Platforms\iOS\**\*.cs" />
+    <Reference Include="OpenTK-1.0" />
+    <PackageReference Include="NETStandard.Library" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="NETStandard.Library" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Platforms\Android\" />
+    <Folder Include="Platforms\iOS\" />
+  </ItemGroup>
+
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+</Project>
