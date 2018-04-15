@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using CustomLayoutsDemo;
+using Form;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 

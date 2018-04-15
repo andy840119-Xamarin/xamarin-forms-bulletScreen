@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace CustomLayouts.iOS
+namespace iOS
 {
     public class Application
     {

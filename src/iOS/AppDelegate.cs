@@ -1,10 +1,10 @@
-﻿using CustomLayoutsDemo;
+﻿using Form;
 using Foundation;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-namespace CustomLayouts.iOS
+namespace iOS
 {
     [Register("AppDelegate")]
     public class AppDelegate : FormsApplicationDelegate

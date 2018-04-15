@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using BulletScreen.Model;
 
-namespace CustomLayoutsDemo.ViewModels
+namespace Form.ViewModels
 {
     public class FuriganaPageViewModel : BaseViewModel
     {

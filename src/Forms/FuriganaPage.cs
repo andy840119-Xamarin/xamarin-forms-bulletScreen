@@ -1,8 +1,8 @@
 ﻿using BulletScreen.Controls;
-using CustomLayoutsDemo.ViewModels;
+using Form.ViewModels;
 using Xamarin.Forms;
 
-namespace CustomLayoutsDemo
+namespace Form
 {
     public class FuriganaPage : ContentPage
     {

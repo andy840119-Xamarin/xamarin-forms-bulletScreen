@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace CustomLayoutsDemo.ViewModels
+namespace Form.ViewModels
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
