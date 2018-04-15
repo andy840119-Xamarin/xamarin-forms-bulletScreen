@@ -16,14 +16,16 @@ namespace BulletScreen.Controls
         public Guid CommentGuid { get; set; }
 
         /// <summary>
-        /// how much time comment stay on the screen
+        /// Row
         /// </summary>
-        public double StayTime { get; set; }
+        public int Row { get; set; }
 
+        /// <summary>
+        /// Ctor
+        /// </summary>
         public BulletScreenText()
         {
 
         }
-        
     }
 }

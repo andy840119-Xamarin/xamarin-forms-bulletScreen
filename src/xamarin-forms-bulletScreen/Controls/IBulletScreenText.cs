@@ -5,7 +5,8 @@ using BulletScreen.Model;
 
 namespace BulletScreen.Controls
 {
-    public interface IBulletScreenText : ICommentGuid , ICommentStayTime
+    public interface IBulletScreenText : ICommentGuid
     {
+        int Row { get; set; }
     }
 }
